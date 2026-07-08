@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Project Log — Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg: #0B0F17;
+    --surface: #121826;
+    --surface-2: #171F30;
+    --line: #232D42;
+    --text: #E7EBF3;
+    --text-dim: #8A93A8;
+    --accent: #4FD1C5;
+    --accent-dim: #2C6E68;
+    --warn: #F2A65A;
+    --mono: 'JetBrains Mono', monospace;
+    --sans: 'Inter', sans-serif;
+  }
+  *{ box-sizing: border-box; }
+  html{ scroll-behavior: smooth; }
+  body{
+    margin:0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--sans);
+    line-height: 1.55;
+  }
+  a{ color: inherit; }
+
+  .wrap{ max-width: 880px; margin: 0 auto; padding: 64px 24px 120px; }
+
+  /* ---------- Header ---------- */
+  header.top{
+    display:flex; flex-direction:column; gap:10px;
+    padding-bottom: 40px; margin-bottom: 48px;
+    border-bottom: 1px solid var(--line);
+  }
+  .eyebrow{
+    font-family: var(--mono); font-size: 12px; letter-spacing: .12em;
+    color: var(--accent); text-transform: uppercase;
+  }
+  h1.name{
+    font-family: var(--mono); font-size: clamp(28px, 5vw, 40px);
+    font-weight: 700; margin: 0; color: var(--text);
+  }
+  .role{ color: var(--text-dim); font-size: 15px; max-width: 60ch; }
+  .nda-note{
+    font-family: var(--mono); font-size: 12px; color: var(--text-dim);
+    background: var(--surface); border: 1px solid var(--line);
+    padding: 10px 14px; border-radius: 6px; margin-top: 14px; max-width: fit-content;
+  }
+  .nda-note strong{ color: var(--warn); }
+
+  /* ---------- Project Card ---------- */
+  .project{
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    margin-bottom: 32px;
+    overflow: hidden;
+  }
+  .project-head{
+    padding: 24px 28px;
+    border-bottom: 1px solid var(--line);
+    display:flex; justify-content:space-between; align-items:flex-start; gap: 16px;
+    flex-wrap: wrap;
+  }
+  .project-title{
+    font-family: var(--mono); font-size: 20px; font-weight: 700; margin: 0 0 6px;
+    color: var(--text);
+  }
+  .project-tag{
+    font-size: 13.5px; color: var(--text-dim); max-width: 52ch; margin:0;
+  }
+  .status-pill{
+    font-family: var(--mono); font-size: 11px; letter-spacing:.06em;
+    color: var(--accent); border: 1px solid var(--accent-dim);
+    background: rgba(79,209,197,0.08);
+    padding: 5px 10px; border-radius: 999px; white-space: nowrap;
+  }
+
+  .section{
+    padding: 20px 28px;
+    border-bottom: 1px solid var(--line);
+  }
+  .section:last-child{ border-bottom: none; }
+  .section-label{
+    font-family: var(--mono); font-size: 11px; letter-spacing: .1em;
+    color: var(--text-dim); text-transform: uppercase; margin: 0 0 10px;
+  }
+  .section-body{ font-size: 14.5px; color: var(--text); margin:0; }
+  .section-body + .section-body{ margin-top: 8px; }
+
+  /* stack chips */
+  .chips{ display:flex; flex-wrap:wrap; gap: 8px; }
+  .chip{
+    font-family: var(--mono); font-size: 12.5px;
+    background: var(--surface-2); border: 1px solid var(--line);
+    color: var(--text); padding: 5px 10px; border-radius: 5px;
+  }
+
+  /* routing bar (signature element) */
+  .route{ margin-top: 10px; }
+  .route-track{
+    height: 22px; border-radius: 5px; overflow:hidden;
+    display:flex; border: 1px solid var(--line);
+  }
+  .route-flash{ background: var(--accent-dim); width: 90%; display:flex; align-items:center; padding-left:8px; }
+  .route-pro{ background: var(--warn); width: 10%; }
+  .route-flash span{
+    font-family: var(--mono); font-size: 10.5px; color: #DFF7F4; white-space:nowrap;
+  }
+  .route-legend{
+    display:flex; gap: 18px; margin-top: 8px;
+    font-family: var(--mono); font-size: 11.5px; color: var(--text-dim);
+  }
+  .dot{ width:8px; height:8px; border-radius:2px; display:inline-block; margin-right:6px; }
+
+  /* validation meter */
+  .meter-row{ display:flex; align-items:center; gap: 14px; }
+  .meter-track{
+    flex:1; height: 10px; background: var(--surface-2);
+    border-radius: 5px; overflow:hidden; border:1px solid var(--line);
+  }
+  .meter-fill{
+    height:100%; width: 92%;
+    background: linear-gradient(90deg, var(--accent-dim), var(--accent));
+  }
+  .meter-num{
+    font-family: var(--mono); font-size: 15px; font-weight: 700; color: var(--accent);
+    white-space: nowrap;
+  }
+  .meter-sub{ font-size: 12.5px; color: var(--text-dim); margin-top: 6px; }
+
+  footer.foot{
+    margin-top: 40px; font-size: 13px; color: var(--text-dim);
+    font-family: var(--mono);
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="top">
+    <div class="eyebrow">// project_log</div>
+    <h1 class="name">Vinayak Kokare</h1>
+    <p class="role">Forward Deployed Engineer (AI Engineer) — case studies from professional work, described without exposing employer code or proprietary data.</p>
+    <div class="nda-note"><strong>Note:</strong> Projects below were built under NDA. Descriptions, architecture, and my role are shared; source code and live demos are not.</div>
+  </header>
+
+  <!-- PROJECT 1: ASKBOARD -->
+  <article class="project">
+    <div class="project-head">
+      <div>
+        <h2 class="project-title">Askboard</h2>
+        <p class="project-tag">LLM-powered Q&A over hotel/restaurant billing documents</p>
+      </div>
+      <span class="status-pill">NDA — description only</span>
+    </div>
+
+    <div class="section">
+      <p class="section-label">Problem</p>
+      <p class="section-body">Hotel and restaurant bills are unstructured and inconsistent in format, making it hard to quickly extract or query specific details — charges, taxes, discounts — without manual review.</p>
+    </div>
+
+    <div class="section">
+      <p class="section-label">What I built</p>
+      <p class="section-body">A web app that lets users upload a bill, extracts its content via OCR, and answers natural language questions about it using an LLM grounded in the extracted data.</p>
+    </div>
+
+    <div class="section">
+      <p class="section-label">My role</p>
+      <p class="section-body">Built the OCR pipeline, LLM query logic (including model routing for cost efficiency), and the frontend UI for client interaction.</p>
+    </div>
+
+    <div class="section">
+      <p class="section-label">Stack</p>
+      <div class="chips">
+        <span class="chip">Google Vision API (OCR)</span>
+        <span class="chip">DeepSeek-V4-Flash</span>
+        <span class="chip">DeepSeek-V4-Pro</span>
+        <span class="chip">JavaScript</span>
+        <span class="chip">Rate-limited spend: $10</span>
+      </div>
+    </div>
+
+    <div class="section">
+      <p class="section-label">Architecture</p>
+      <p class="section-body">Bill image → Google Vision OCR → structured text extraction → indexed as a query-able knowledge base → user question routed to a mixed model pipeline → answer returned grounded in the extracted bill content.</p>
+      <div class="route">
+        <div class="route-track">
+          <div class="route-flash"><span>V4-Flash · 90%</span></div>
+          <div class="route-pro"></div>
+        </div>
+        <div class="route-legend">
+          <span><span class="dot" style="background:var(--accent-dim)"></span>Flash — bulk of queries</span>
+          <span><span class="dot" style="background:var(--warn)"></span>Pro — harder queries</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <p class="section-label">Challenge solved</p>
+      <p class="section-body">Designed a cost-efficient model routing strategy (90% Flash / 10% Pro) to balance answer quality against LLM API cost, instead of sending every query to the more expensive model.</p>
+    </div>
+
+    <div class="section">
+      <p class="section-label">Validation</p>
+      <div class="meter-row">
+        <div class="meter-track"><div class="meter-fill"></div></div>
+        <span class="meter-num">90%+</span>
+      </div>
+      <p class="meter-sub">Manually validated against 20+ real bill queries — model answers checked against manually verified correct answers.</p>
+    </div>
+  </article>
+
+  <!-- Next project card goes here — copy the <article class="project"> block above and swap content -->
+
+  <footer class="foot">// end_of_log — more projects to follow</footer>
+
+</div>
+</body>
+</html>
