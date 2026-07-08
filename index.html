@@ -326,6 +326,11 @@
       <p class="section-label">Use cases tested</p>
       <p class="section-body">Follow-up lead calls, client demo calls, and scheduled/automated call runs triggered via n8n.</p>
     </div>
+
+    <div class="section">
+      <p class="section-label">Scheduling UI</p>
+      <p class="section-body">Built a UI to schedule outreach across channels — voice calls through the agent, SMS via MSG91, WhatsApp via Chatwoot, and email via Brevo — from a single interface.</p>
+    </div>
   </article>
 
   <!-- PROJECT 4: AUTOMATED OUTBOUND CALL & LOGGING WORKFLOW -->
@@ -428,6 +433,103 @@
     <div class="section">
       <p class="section-label">Challenge solved</p>
       <p class="section-body">Built a fully automated, near-real-time (1-minute polling) loop connecting lead intake, outbound calling, and result logging — with no manual steps between adding a lead and having a fully logged, callable outcome.</p>
+    </div>
+  </article>
+
+  <!-- PROJECT 5: NOTION LEAD AUTOMATION -->
+  <article class="project">
+    <div class="project-head">
+      <div>
+        <h2 class="project-title">Notion Lead Automation Suite</h2>
+        <p class="project-tag">Four connected n8n workflows for lead intake, outreach, reply handling, and weekly reporting</p>
+      </div>
+      <span class="status-pill">NDA — description only</span>
+    </div>
+
+    <div class="section">
+      <p class="section-label">Problem</p>
+      <p class="section-body">Leads were tracked in Notion but nothing happened automatically when a lead's stage changed — outreach, follow-ups, reply tracking, and reporting were all manual.</p>
+    </div>
+
+    <div class="section">
+      <p class="section-label">What I built</p>
+      <p class="section-body">Four connected n8n workflows covering the full lead lifecycle: intake and normalization when a lead is added in Notion, scheduled multi-channel outreach for pending leads, WhatsApp reply matching back to the right lead, and a weekly automated summary of lead activity.</p>
+    </div>
+
+    <div class="section">
+      <p class="section-label">My role</p>
+      <p class="section-body">Designed and built all four workflows end-to-end, including the data normalization logic, multi-channel outreach orchestration, and reply-matching logic.</p>
+    </div>
+
+    <div class="section">
+      <p class="section-label">Stack</p>
+      <div class="chips">
+        <span class="chip">n8n</span>
+        <span class="chip">Notion</span>
+        <span class="chip">Supabase</span>
+        <span class="chip">WhatsApp (Chatwoot)</span>
+        <span class="chip">Email (Brevo)</span>
+        <span class="chip">Custom voice agent</span>
+        <span class="chip">Claude (weekly summaries)</span>
+      </div>
+    </div>
+
+    <div class="section">
+      <p class="section-label">Workflows</p>
+      <svg width="100%" viewBox="0 0 680 400" role="img" style="margin-top:6px;">
+        <title>Notion-based lead automation across four n8n workflows</title>
+        <desc>Four workflows: lead intake and normalization, scheduled multi-channel outreach, WhatsApp reply matching, and weekly summary generation.</desc>
+        <defs>
+          <marker id="arrow5" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></marker>
+        </defs>
+
+        <text x="20" y="20" font-family="'JetBrains Mono',monospace" font-size="11" fill="#8A93A8">1. Lead intake (Notion drag-and-drop trigger)</text>
+        <g><rect x="20" y="30" width="120" height="40" rx="8" fill="#171F30" stroke="#2C6E68" stroke-width="0.5"/><text x="80" y="54" text-anchor="middle" fill="#DFF7F4" font-family="'JetBrains Mono',monospace" font-size="11" font-weight="600">Notion trigger</text></g>
+        <line x1="140" y1="50" x2="168" y2="50" stroke="#4FD1C5" stroke-width="1.5" marker-end="url(#arrow5)"/>
+        <g><rect x="168" y="30" width="120" height="40" rx="8" fill="#171F30" stroke="#2C6E68" stroke-width="0.5"/><text x="228" y="54" text-anchor="middle" fill="#DFF7F4" font-family="'JetBrains Mono',monospace" font-size="11" font-weight="600">Normalize data</text></g>
+        <line x1="288" y1="50" x2="316" y2="50" stroke="#4FD1C5" stroke-width="1.5" marker-end="url(#arrow5)"/>
+        <g><rect x="316" y="30" width="120" height="40" rx="8" fill="#171F30" stroke="#2C6E68" stroke-width="0.5"/><text x="376" y="54" text-anchor="middle" fill="#DFF7F4" font-family="'JetBrains Mono',monospace" font-size="11" font-weight="600">Save to Supabase</text></g>
+        <line x1="436" y1="50" x2="464" y2="50" stroke="#4FD1C5" stroke-width="1.5" marker-end="url(#arrow5)"/>
+        <g><rect x="464" y="30" width="110" height="40" rx="8" fill="#171F30" stroke="#2C6E68" stroke-width="0.5"/><text x="519" y="45" text-anchor="middle" fill="#DFF7F4" font-family="'JetBrains Mono',monospace" font-size="11" font-weight="600">Notify</text><text x="519" y="60" text-anchor="middle" fill="#8A93A8" font-family="Inter,sans-serif" font-size="10">email + WhatsApp</text></g>
+
+        <line x1="20" y1="92" x2="640" y2="92" stroke="#232D42" stroke-width="0.5"/>
+
+        <text x="20" y="112" font-family="'JetBrains Mono',monospace" font-size="11" fill="#8A93A8">2. Scheduled outreach (pending leads)</text>
+        <g><rect x="20" y="122" width="112" height="40" rx="8" fill="#2A1710" stroke="#8A4A2C" stroke-width="0.5"/><text x="76" y="138" text-anchor="middle" fill="#FFD9BB" font-family="'JetBrains Mono',monospace" font-size="11" font-weight="600">Schedule</text><text x="76" y="152" text-anchor="middle" fill="#D9A87C" font-family="Inter,sans-serif" font-size="10">pending leads</text></g>
+        <line x1="132" y1="142" x2="160" y2="142" stroke="#D9824F" stroke-width="1.5" marker-end="url(#arrow5)"/>
+        <g><rect x="160" y="122" width="100" height="40" rx="8" fill="#2A1710" stroke="#8A4A2C" stroke-width="0.5"/><text x="210" y="146" text-anchor="middle" fill="#FFD9BB" font-family="'JetBrains Mono',monospace" font-size="11" font-weight="600">Batch leads</text></g>
+        <line x1="260" y1="142" x2="288" y2="142" stroke="#D9824F" stroke-width="1.5" marker-end="url(#arrow5)"/>
+        <g><rect x="288" y="122" width="140" height="40" rx="8" fill="#2A1710" stroke="#8A4A2C" stroke-width="0.5"/><text x="358" y="138" text-anchor="middle" fill="#FFD9BB" font-family="'JetBrains Mono',monospace" font-size="11" font-weight="600">Outreach</text><text x="358" y="152" text-anchor="middle" fill="#D9A87C" font-family="Inter,sans-serif" font-size="10">email, WhatsApp, call</text></g>
+        <line x1="428" y1="142" x2="456" y2="142" stroke="#D9824F" stroke-width="1.5" marker-end="url(#arrow5)"/>
+        <g><rect x="456" y="122" width="118" height="40" rx="8" fill="#2A1710" stroke="#8A4A2C" stroke-width="0.5"/><text x="515" y="138" text-anchor="middle" fill="#FFD9BB" font-family="'JetBrains Mono',monospace" font-size="11" font-weight="600">Update lead</text><text x="515" y="152" text-anchor="middle" fill="#D9A87C" font-family="Inter,sans-serif" font-size="10">touch count</text></g>
+
+        <line x1="20" y1="184" x2="640" y2="184" stroke="#232D42" stroke-width="0.5"/>
+
+        <text x="20" y="204" font-family="'JetBrains Mono',monospace" font-size="11" fill="#8A93A8">3. WhatsApp reply matching</text>
+        <g><rect x="20" y="214" width="130" height="40" rx="8" fill="#1C1730" stroke="#5A4A8A" stroke-width="0.5"/><text x="85" y="238" text-anchor="middle" fill="#E4DBFF" font-family="'JetBrains Mono',monospace" font-size="11" font-weight="600">WhatsApp inbound</text></g>
+        <line x1="150" y1="234" x2="178" y2="234" stroke="#8A73D9" stroke-width="1.5" marker-end="url(#arrow5)"/>
+        <g><rect x="178" y="214" width="110" height="40" rx="8" fill="#1C1730" stroke="#5A4A8A" stroke-width="0.5"/><text x="233" y="238" text-anchor="middle" fill="#E4DBFF" font-family="'JetBrains Mono',monospace" font-size="11" font-weight="600">Extract reply</text></g>
+        <line x1="288" y1="234" x2="316" y2="234" stroke="#8A73D9" stroke-width="1.5" marker-end="url(#arrow5)"/>
+        <g><rect x="316" y="214" width="110" height="40" rx="8" fill="#1C1730" stroke="#5A4A8A" stroke-width="0.5"/><text x="371" y="238" text-anchor="middle" fill="#E4DBFF" font-family="'JetBrains Mono',monospace" font-size="11" font-weight="600">Match lead</text></g>
+        <line x1="426" y1="234" x2="454" y2="234" stroke="#8A73D9" stroke-width="1.5" marker-end="url(#arrow5)"/>
+        <g><rect x="454" y="214" width="100" height="40" rx="8" fill="#1C1730" stroke="#5A4A8A" stroke-width="0.5"/><text x="504" y="238" text-anchor="middle" fill="#E4DBFF" font-family="'JetBrains Mono',monospace" font-size="11" font-weight="600">Store reply</text></g>
+
+        <line x1="20" y1="276" x2="640" y2="276" stroke="#232D42" stroke-width="0.5"/>
+
+        <text x="20" y="296" font-family="'JetBrains Mono',monospace" font-size="11" fill="#8A93A8">4. Weekly summary (scheduled)</text>
+        <g><rect x="20" y="306" width="112" height="40" rx="8" fill="#2A2210" stroke="#8A7A2C" stroke-width="0.5"/><text x="76" y="322" text-anchor="middle" fill="#FFF0BB" font-family="'JetBrains Mono',monospace" font-size="11" font-weight="600">Schedule</text><text x="76" y="336" text-anchor="middle" fill="#D9C87C" font-family="Inter,sans-serif" font-size="10">weekly cycle</text></g>
+        <line x1="132" y1="326" x2="160" y2="326" stroke="#D9BF4F" stroke-width="1.5" marker-end="url(#arrow5)"/>
+        <g><rect x="160" y="306" width="120" height="40" rx="8" fill="#2A2210" stroke="#8A7A2C" stroke-width="0.5"/><text x="220" y="330" text-anchor="middle" fill="#FFF0BB" font-family="'JetBrains Mono',monospace" font-size="11" font-weight="600">Get lead details</text></g>
+        <line x1="280" y1="326" x2="308" y2="326" stroke="#D9BF4F" stroke-width="1.5" marker-end="url(#arrow5)"/>
+        <g><rect x="308" y="306" width="110" height="40" rx="8" fill="#2A2210" stroke="#8A7A2C" stroke-width="0.5"/><text x="363" y="322" text-anchor="middle" fill="#FFF0BB" font-family="'JetBrains Mono',monospace" font-size="11" font-weight="600">Summarize</text><text x="363" y="336" text-anchor="middle" fill="#D9C87C" font-family="Inter,sans-serif" font-size="10">via Claude</text></g>
+        <line x1="418" y1="326" x2="446" y2="326" stroke="#D9BF4F" stroke-width="1.5" marker-end="url(#arrow5)"/>
+        <g><rect x="446" y="306" width="118" height="40" rx="8" fill="#2A2210" stroke="#8A7A2C" stroke-width="0.5"/><text x="505" y="330" text-anchor="middle" fill="#FFF0BB" font-family="'JetBrains Mono',monospace" font-size="11" font-weight="600">Update Notion</text></g>
+      </svg>
+    </div>
+
+    <div class="section">
+      <p class="section-label">Challenge solved</p>
+      <p class="section-body">Built a lead lifecycle that runs itself — from the moment a lead is added in Notion through outreach, reply capture, and reporting — with no manual coordination between tools required at any stage.</p>
     </div>
   </article>
 
