@@ -328,6 +328,109 @@
     </div>
   </article>
 
+  <!-- PROJECT 4: AUTOMATED OUTBOUND CALL & LOGGING WORKFLOW -->
+  <article class="project">
+    <div class="project-head">
+      <div>
+        <h2 class="project-title">Automated Outbound Call &amp; Logging Workflow</h2>
+        <p class="project-tag">n8n automation connecting lead sheet &rarr; voice agent &rarr; call logging</p>
+      </div>
+      <span class="status-pill">NDA — description only</span>
+    </div>
+
+    <div class="section">
+      <p class="section-label">Problem</p>
+      <p class="section-body">A hotel client wanted a simple way to trigger outbound calls automatically — add a lead's name and phone number, and have the voice agent call them without manual dialing, with results logged automatically.</p>
+    </div>
+
+    <div class="section">
+      <p class="section-label">What I built</p>
+      <p class="section-body">An n8n automation that watches a lead sheet for new/pending entries every minute, triggers the voice agent to call them, and writes the call outcome — transcript, recording link, status, and timestamp — back into the same row.</p>
+    </div>
+
+    <div class="section">
+      <p class="section-label">My role</p>
+      <p class="section-body">Designed and built the full automation workflow end-to-end using n8n, including the call-triggering logic and the result-logging webhook.</p>
+    </div>
+
+    <div class="section">
+      <p class="section-label">Stack</p>
+      <div class="chips">
+        <span class="chip">n8n</span>
+        <span class="chip">Google Sheets</span>
+        <span class="chip">Plivo (recording retrieval)</span>
+        <span class="chip">Custom voice agent (API trigger)</span>
+      </div>
+    </div>
+
+    <div class="section">
+      <p class="section-label">Workflow</p>
+      <svg width="100%" viewBox="0 0 680 340" role="img" style="margin-top:6px;">
+        <title>Automated outbound call and logging workflow</title>
+        <desc>Two n8n pipelines: one triggers calls every minute from a lead sheet, the other logs call results back via webhook.</desc>
+        <defs>
+          <marker id="arrow4" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></marker>
+        </defs>
+
+        <text x="40" y="30" font-family="'JetBrains Mono',monospace" font-size="11" fill="#8A93A8">Pipeline A — call trigger (runs every minute)</text>
+        <g>
+          <rect x="40" y="44" width="110" height="56" rx="8" stroke-width="0.5" fill="#171F30" stroke="#2C6E68"/>
+          <text x="95" y="66" text-anchor="middle" fill="#DFF7F4" font-family="'JetBrains Mono',monospace" font-size="12" font-weight="600">Schedule</text>
+          <text x="95" y="84" text-anchor="middle" fill="#8A93A8" font-family="Inter,sans-serif" font-size="11">every 1 min</text>
+        </g>
+        <line x1="150" y1="72" x2="182" y2="72" stroke="#4FD1C5" stroke-width="1.5" marker-end="url(#arrow4)"/>
+        <g>
+          <rect x="182" y="44" width="110" height="56" rx="8" stroke-width="0.5" fill="#171F30" stroke="#2C6E68"/>
+          <text x="237" y="66" text-anchor="middle" fill="#DFF7F4" font-family="'JetBrains Mono',monospace" font-size="12" font-weight="600">Get rows</text>
+          <text x="237" y="84" text-anchor="middle" fill="#8A93A8" font-family="Inter,sans-serif" font-size="11">read lead sheet</text>
+        </g>
+        <line x1="292" y1="72" x2="324" y2="72" stroke="#4FD1C5" stroke-width="1.5" marker-end="url(#arrow4)"/>
+        <g>
+          <rect x="324" y="44" width="110" height="56" rx="8" stroke-width="0.5" fill="#171F30" stroke="#2C6E68"/>
+          <text x="379" y="66" text-anchor="middle" fill="#DFF7F4" font-family="'JetBrains Mono',monospace" font-size="12" font-weight="600">Filter</text>
+          <text x="379" y="84" text-anchor="middle" fill="#8A93A8" font-family="Inter,sans-serif" font-size="11">pick uncalled</text>
+        </g>
+        <line x1="434" y1="72" x2="466" y2="72" stroke="#4FD1C5" stroke-width="1.5" marker-end="url(#arrow4)"/>
+        <g>
+          <rect x="466" y="44" width="110" height="56" rx="8" stroke-width="0.5" fill="#2A1710" stroke="#8A4A2C"/>
+          <text x="521" y="66" text-anchor="middle" fill="#FFD9BB" font-family="'JetBrains Mono',monospace" font-size="12" font-weight="600">Place call</text>
+          <text x="521" y="84" text-anchor="middle" fill="#D9A87C" font-family="Inter,sans-serif" font-size="11">trigger voice agent</text>
+        </g>
+        <line x1="521" y1="100" x2="521" y2="126" stroke="#4FD1C5" stroke-width="1.5" marker-end="url(#arrow4)"/>
+        <g>
+          <rect x="466" y="126" width="110" height="44" rx="8" stroke-width="0.5" fill="#171F30" stroke="#2C6E68"/>
+          <text x="521" y="152" text-anchor="middle" fill="#DFF7F4" font-family="'JetBrains Mono',monospace" font-size="12" font-weight="600">Mark called</text>
+        </g>
+
+        <line x1="40" y1="200" x2="640" y2="200" stroke="#232D42" stroke-width="0.5"/>
+
+        <text x="40" y="228" font-family="'JetBrains Mono',monospace" font-size="11" fill="#8A93A8">Pipeline B — result logging (on call completion)</text>
+        <g>
+          <rect x="40" y="242" width="110" height="56" rx="8" stroke-width="0.5" fill="#1C1730" stroke="#5A4A8A"/>
+          <text x="95" y="264" text-anchor="middle" fill="#E4DBFF" font-family="'JetBrains Mono',monospace" font-size="12" font-weight="600">Webhook</text>
+          <text x="95" y="282" text-anchor="middle" fill="#B3A3D9" font-family="Inter,sans-serif" font-size="11">call finished</text>
+        </g>
+        <line x1="150" y1="270" x2="182" y2="270" stroke="#8A73D9" stroke-width="1.5" marker-end="url(#arrow4)"/>
+        <g>
+          <rect x="182" y="242" width="110" height="56" rx="8" stroke-width="0.5" fill="#1C1730" stroke="#5A4A8A"/>
+          <text x="237" y="264" text-anchor="middle" fill="#E4DBFF" font-family="'JetBrains Mono',monospace" font-size="12" font-weight="600">Match row</text>
+          <text x="237" y="282" text-anchor="middle" fill="#B3A3D9" font-family="Inter,sans-serif" font-size="11">find lead by ID</text>
+        </g>
+        <line x1="292" y1="270" x2="324" y2="270" stroke="#8A73D9" stroke-width="1.5" marker-end="url(#arrow4)"/>
+        <g>
+          <rect x="324" y="242" width="252" height="56" rx="8" stroke-width="0.5" fill="#1C1730" stroke="#5A4A8A"/>
+          <text x="450" y="264" text-anchor="middle" fill="#E4DBFF" font-family="'JetBrains Mono',monospace" font-size="12" font-weight="600">Mark result</text>
+          <text x="450" y="282" text-anchor="middle" fill="#B3A3D9" font-family="Inter,sans-serif" font-size="11">status, timestamp, transcript, recording</text>
+        </g>
+      </svg>
+    </div>
+
+    <div class="section">
+      <p class="section-label">Challenge solved</p>
+      <p class="section-body">Built a fully automated, near-real-time (1-minute polling) loop connecting lead intake, outbound calling, and result logging — with no manual steps between adding a lead and having a fully logged, callable outcome.</p>
+    </div>
+  </article>
+
   <!-- Next project card goes here — copy the <article class="project"> block above and swap content -->
 
   <footer class="foot">// end_of_log — more projects to follow</footer>
