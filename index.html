@@ -271,6 +271,63 @@
     </div>
   </article>
 
+  <!-- PROJECT 3: VOICE AGENT -->
+  <article class="project">
+    <div class="project-head">
+      <div>
+        <h2 class="project-title">Voice Agent</h2>
+        <p class="project-tag">Custom-built conversational voice AI — built from scratch, not on a platform</p>
+      </div>
+      <span class="status-pill">NDA — description only</span>
+    </div>
+
+    <div class="section">
+      <p class="section-label">Problem</p>
+      <p class="section-body">Existing no-code voice agent platforms (Bolna, Smallest.ai) only allow script/config-level changes — they suffer from high latency, hallucination, no reliable barge-in handling, weak objection handling, and repetitive responses, with no way to fix any of it at the architecture level.</p>
+    </div>
+
+    <div class="section">
+      <p class="section-label">What I built</p>
+      <p class="section-body">A voice agent built entirely from scratch (not on top of any existing platform) — covering telephony, VAD, STT, LLM reasoning, and TTS as a fully custom pipeline, giving full control over latency, conversation flow, and behavior instead of being limited to script tweaks.</p>
+    </div>
+
+    <div class="section">
+      <p class="section-label">My role</p>
+      <p class="section-body">Designed and built the entire agent solo, end-to-end, in 8-9 days — telephony integration, VAD, latency optimization across the full pipeline, barge-in handling, and objection handling logic.</p>
+    </div>
+
+    <div class="section">
+      <p class="section-label">Stack</p>
+      <div class="chips">
+        <span class="chip">Plivo (telephony)</span>
+        <span class="chip">AWS Lightsail</span>
+        <span class="chip">n8n (automation/triggering)</span>
+      </div>
+    </div>
+
+    <div class="section">
+      <p class="section-label">Performance</p>
+      <p class="section-body">End-to-end latency: 700–900 ms, including VAD and endpoint-hit latency.</p>
+      <div class="chips">
+        <span class="chip">STT: 250–300 ms</span>
+        <span class="chip">LLM: 350–400 ms</span>
+        <span class="chip">TTS: 100–200 ms</span>
+      </div>
+      <p class="section-body">Languages: English + Hindi (Hinglish, Devanagari-aware). Handles real-time barge-in and mid-sentence interruption in both languages.</p>
+      <p class="section-body">Cost: ₹3.50 per 3-min inbound call (~₹1.15/min), ₹4.50 per 3-min outbound call (~₹1.50/min).</p>
+    </div>
+
+    <div class="section">
+      <p class="section-label">Challenge solved</p>
+      <p class="section-body">Built a full custom voice pipeline from the ground up in under 9 days, hitting sub-second end-to-end latency while solving the specific failure modes — hallucination, no barge-in, weak objection handling — that off-the-shelf platforms couldn't fix, without the luxury of extended fine-tuning time.</p>
+    </div>
+
+    <div class="section">
+      <p class="section-label">Use cases tested</p>
+      <p class="section-body">Follow-up lead calls, client demo calls, and scheduled/automated call runs triggered via n8n.</p>
+    </div>
+  </article>
+
   <!-- Next project card goes here — copy the <article class="project"> block above and swap content -->
 
   <footer class="foot">// end_of_log — more projects to follow</footer>
