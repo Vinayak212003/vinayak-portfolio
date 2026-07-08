@@ -218,6 +218,59 @@
     </div>
   </article>
 
+  <!-- PROJECT 2: INSTANT ITINERARY ENGINE -->
+  <article class="project">
+    <div class="project-head">
+      <div>
+        <h2 class="project-title">Instant Itinerary Engine</h2>
+        <p class="project-tag">Automated multi-source itinerary + PDF generator for a travel agency</p>
+      </div>
+      <span class="status-pill">NDA — description only</span>
+    </div>
+
+    <div class="section">
+      <p class="section-label">Problem</p>
+      <p class="section-body">Travel agency itineraries required manually checking hotel rates across 4 disconnected sources — yearly Excel contracts, two login-only B2B portals, and public OTAs for price verification — plus transport costs, taking hours per client enquiry instead of the target 10 minutes.</p>
+    </div>
+
+    <div class="section">
+      <p class="section-label">What I built</p>
+      <p class="section-body">An end-to-end pipeline that takes a single enquiry (destination, dates, pax, budget, preferences) and outputs 5 distinct itinerary PDFs — in the agency's own template — each with verified-cheapest hotel + transport pricing, within 10 minutes.</p>
+    </div>
+
+    <div class="section">
+      <p class="section-label">My role</p>
+      <p class="section-body">Built the entire project from scratch — scraping infrastructure, job orchestration, itinerary engine, and PDF rendering.</p>
+    </div>
+
+    <div class="section">
+      <p class="section-label">Stack</p>
+      <div class="chips">
+        <span class="chip">Playwright / Puppeteer</span>
+        <span class="chip">BullMQ</span>
+        <span class="chip">Redis</span>
+        <span class="chip">OpenRouter (LLM)</span>
+        <span class="chip">Fal API (images)</span>
+        <span class="chip">Excel sync layer</span>
+      </div>
+    </div>
+
+    <div class="section">
+      <p class="section-label">Architecture</p>
+      <p class="section-body">Excel rate sheets normalized into a queryable DB, re-synced on update. On enquiry, parallelized scraping jobs (via BullMQ workers) pull live rates from B2B portals, cached 6–12 hrs so repeat destination searches are near-instant. OTA rates are scraped in parallel to confirm the agency's B2B rate is the cheaper option, flagging any mismatch. An itinerary engine selects hotel combinations across 5 price bands (budget → luxury) and merges in transport costs plus markup. 4 pricing variants per set (2 at actual cost, 2 with client markup) are generated via OpenRouter and rendered into branded PDFs using the agency's historical itinerary format as a design reference.</p>
+    </div>
+
+    <div class="section">
+      <p class="section-label">Challenge solved</p>
+      <p class="section-body">Built resilient, parallelized browser automation across multiple login-gated portals with no API access, handling anti-scraping defenses like IP-based rate limiting — while keeping the full enquiry-to-PDF pipeline under a 10-minute SLA.</p>
+    </div>
+
+    <div class="section">
+      <p class="section-label">Validation</p>
+      <p class="section-body">Average pipeline runtime of 10 minutes across 10 test enquiries, with agency rates verified cheaper than OTA pricing by 15%.</p>
+    </div>
+  </article>
+
   <!-- Next project card goes here — copy the <article class="project"> block above and swap content -->
 
   <footer class="foot">// end_of_log — more projects to follow</footer>
