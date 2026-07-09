@@ -533,6 +533,211 @@
     </div>
   </article>
 
+  <!-- PROJECT 6: RESTAURANT E2E -->
+  <article class="project">
+    <div class="project-head">
+      <div>
+        <h2 class="project-title">Restaurant E2E</h2>
+        <p class="project-tag">End-to-end restaurant audit &amp; AI-generated growth toolkit</p>
+      </div>
+      <span class="status-pill">NDA — description only</span>
+    </div>
+
+    <div class="section">
+      <p class="section-label">Problem</p>
+      <p class="section-body">Restaurant owners have no single view of how their business appears across the internet — Google listings, Instagram, food delivery apps, and their own website — let alone a clear, actionable read on what to improve or how to market themselves.</p>
+    </div>
+
+    <div class="section">
+      <p class="section-label">What I built</p>
+      <p class="section-body">A web app where a client enters their restaurant name and city, and the system locates the exact business, aggregates its presence across platforms, generates an AI-written audit with growth recommendations, produces on-brand marketing visuals and video, and renders it all into an interactive website — end-to-end, from a single search.</p>
+    </div>
+
+    <div class="section">
+      <p class="section-label">My role</p>
+      <p class="section-body">Built the entire project from scratch, end-to-end — location resolution, data aggregation, audit generation, creative generation, and the interactive rendering layer.</p>
+    </div>
+
+    <div class="section">
+      <p class="section-label">Stack</p>
+      <div class="chips">
+        <span class="chip">Google Search API</span>
+        <span class="chip">Apify (platform data aggregation)</span>
+        <span class="chip">Claude Sonnet (audit + rendering)</span>
+        <span class="chip">Fal API (image + video generation)</span>
+      </div>
+    </div>
+
+    <div class="section">
+      <p class="section-label">Pipeline</p>
+      <svg width="100%" viewBox="0 0 680 260" role="img" style="margin-top:6px;">
+        <title>Restaurant E2E pipeline</title>
+        <desc>Five-step pipeline: locate restaurant, aggregate platform data, generate audit report, generate creative assets, render interactive result.</desc>
+        <defs>
+          <marker id="arrow6" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></marker>
+        </defs>
+
+        <g><rect x="20" y="30" width="118" height="52" rx="8" fill="#171F30" stroke="#2C6E68" stroke-width="0.5"/><text x="79" y="52" text-anchor="middle" fill="#DFF7F4" font-family="'JetBrains Mono',monospace" font-size="11" font-weight="600">Locate</text><text x="79" y="68" text-anchor="middle" fill="#8A93A8" font-family="Inter,sans-serif" font-size="10">name + city search</text></g>
+        <line x1="138" y1="56" x2="166" y2="56" stroke="#4FD1C5" stroke-width="1.5" marker-end="url(#arrow6)"/>
+
+        <g><rect x="166" y="30" width="130" height="52" rx="8" fill="#171F30" stroke="#2C6E68" stroke-width="0.5"/><text x="231" y="52" text-anchor="middle" fill="#DFF7F4" font-family="'JetBrains Mono',monospace" font-size="11" font-weight="600">Aggregate data</text><text x="231" y="68" text-anchor="middle" fill="#8A93A8" font-family="Inter,sans-serif" font-size="10">Insta, Zomato, Swiggy, site</text></g>
+        <line x1="296" y1="56" x2="324" y2="56" stroke="#4FD1C5" stroke-width="1.5" marker-end="url(#arrow6)"/>
+
+        <g><rect x="324" y="30" width="128" height="52" rx="8" fill="#2A1710" stroke="#8A4A2C" stroke-width="0.5"/><text x="388" y="52" text-anchor="middle" fill="#FFD9BB" font-family="'JetBrains Mono',monospace" font-size="11" font-weight="600">Run diagnostic</text><text x="388" y="68" text-anchor="middle" fill="#D9A87C" font-family="Inter,sans-serif" font-size="10">Claude audit report</text></g>
+        <line x1="452" y1="56" x2="480" y2="56" stroke="#D9824F" stroke-width="1.5" marker-end="url(#arrow6)"/>
+
+        <g><rect x="480" y="30" width="150" height="52" rx="8" fill="#1C1730" stroke="#5A4A8A" stroke-width="0.5"/><text x="555" y="52" text-anchor="middle" fill="#E4DBFF" font-family="'JetBrains Mono',monospace" font-size="11" font-weight="600">Generate creative</text><text x="555" y="68" text-anchor="middle" fill="#B3A3D9" font-family="Inter,sans-serif" font-size="10">20 images + 1 video</text></g>
+
+        <line x1="555" y1="82" x2="555" y2="110" stroke="#8A73D9" stroke-width="1.5" marker-end="url(#arrow6)"/>
+        <line x1="555" y1="110" x2="180" y2="110" stroke="#8A73D9" stroke-width="1.5"/>
+        <line x1="180" y1="110" x2="180" y2="138" stroke="#8A73D9" stroke-width="1.5" marker-end="url(#arrow6)"/>
+
+        <g><rect x="20" y="138" width="320" height="52" rx="8" fill="#2A2210" stroke="#8A7A2C" stroke-width="0.5"/><text x="180" y="160" text-anchor="middle" fill="#FFF0BB" font-family="'JetBrains Mono',monospace" font-size="11" font-weight="600">Render interactive website</text><text x="180" y="176" text-anchor="middle" fill="#D9C87C" font-family="Inter,sans-serif" font-size="10">Claude-built, with search fallback</text></g>
+      </svg>
+    </div>
+
+    <div class="section">
+      <p class="section-label">Challenge solved</p>
+      <p class="section-body">Chained five distinct AI/automation stages — location resolution, cross-platform data aggregation, LLM-generated audit, brand-aware creative generation (images + video matched to cuisine, vibe, and color palette), and a final Claude-generated interactive, responsive website built from the scraped data, audit report, and creative assets — into one seamless flow triggered from a single client input. Included a fallback mechanism where Claude searches for the restaurant's information independently if scraped data is incomplete, so the site still gets built.</p>
+    </div>
+
+    <div class="section">
+      <p class="section-label">Validation</p>
+      <p class="section-body">Ran the complete pipeline across 20 restaurant websites, manually testing each output with accuracy over 90%.</p>
+    </div>
+  </article>
+
+  <!-- PROJECT 7: KANBAN BOARD — SLACK / SHEETS / SUPABASE -->
+  <article class="project">
+    <div class="project-head">
+      <div>
+        <h2 class="project-title">Kanban Board — Slack + Sheets + Supabase</h2>
+        <p class="project-tag">Real-time task management system for a CA firm, unifying team chat and task tracking</p>
+      </div>
+      <span class="status-pill">NDA — description only</span>
+    </div>
+
+    <div class="section">
+      <p class="section-label">Problem</p>
+      <p class="section-body">A Chartered Accountancy firm needed to coordinate client work across a team of accountants, but task assignment and progress tracking were scattered across chat, spreadsheets, and manual updates — with no single organized view of who owned which client task or how it was progressing.</p>
+    </div>
+
+    <div class="section">
+      <p class="section-label">What I built</p>
+      <p class="section-body">A task management system for the firm's accountants that turns a Slack message into a tracked, assigned task automatically — a bot reads messages in a monitored channel, triggers an n8n workflow, and the task appears in real time on Google Sheets, in Supabase, and on a custom Kanban board scoped per accountant, with protected access keys and role-based access control (RBAC).</p>
+    </div>
+
+    <div class="section">
+      <p class="section-label">My role</p>
+      <p class="section-body">Built the entire system from scratch, end-to-end — the Slack bot integration, both n8n workflows (task creation and task updates), the Supabase/Sheets sync layer, RBAC, and the custom Kanban board frontend.</p>
+    </div>
+
+    <div class="section">
+      <p class="section-label">Stack</p>
+      <div class="chips">
+        <span class="chip">Vercel</span>
+        <span class="chip">Slack (bot + webhooks)</span>
+        <span class="chip">Supabase</span>
+        <span class="chip">Google Sheets</span>
+        <span class="chip">n8n</span>
+        <span class="chip">JavaScript</span>
+      </div>
+    </div>
+
+    <div class="section">
+      <p class="section-label">Workflows</p>
+      <svg width="100%" viewBox="0 0 680 400" role="img" style="margin-top:6px;">
+        <title>Kanban board task ingestion and update workflows</title>
+        <desc>Two n8n workflows: one ingests Slack messages into tasks routed to the right sheet/board tab, the other handles Kanban board updates back into Sheets and Supabase.</desc>
+        <defs>
+          <marker id="arrow7" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></marker>
+        </defs>
+
+        <text x="20" y="20" font-family="'JetBrains Mono',monospace" font-size="11" fill="#8A93A8">1. Task ingestion (Slack message &rarr; task)</text>
+        <g><rect x="20" y="30" width="110" height="42" rx="8" fill="#171F30" stroke="#2C6E68" stroke-width="0.5"/><text x="75" y="47" text-anchor="middle" fill="#DFF7F4" font-family="'JetBrains Mono',monospace" font-size="11" font-weight="600">Slack message</text><text x="75" y="62" text-anchor="middle" fill="#8A93A8" font-family="Inter,sans-serif" font-size="10">bot webhook</text></g>
+        <line x1="130" y1="51" x2="158" y2="51" stroke="#4FD1C5" stroke-width="1.5" marker-end="url(#arrow7)"/>
+        <g><rect x="158" y="30" width="120" height="42" rx="8" fill="#171F30" stroke="#2C6E68" stroke-width="0.5"/><text x="218" y="47" text-anchor="middle" fill="#DFF7F4" font-family="'JetBrains Mono',monospace" font-size="11" font-weight="600">Verify + extract</text><text x="218" y="62" text-anchor="middle" fill="#8A93A8" font-family="Inter,sans-serif" font-size="10">validate task</text></g>
+        <line x1="278" y1="51" x2="306" y2="51" stroke="#4FD1C5" stroke-width="1.5" marker-end="url(#arrow7)"/>
+        <g><rect x="306" y="30" width="130" height="42" rx="8" fill="#2A1710" stroke="#8A4A2C" stroke-width="0.5"/><text x="371" y="47" text-anchor="middle" fill="#FFD9BB" font-family="'JetBrains Mono',monospace" font-size="11" font-weight="600">LLM parse</text><text x="371" y="62" text-anchor="middle" fill="#D9A87C" font-family="Inter,sans-serif" font-size="10">structure task data</text></g>
+        <line x1="436" y1="51" x2="464" y2="51" stroke="#D9824F" stroke-width="1.5" marker-end="url(#arrow7)"/>
+        <g><rect x="464" y="30" width="112" height="42" rx="8" fill="#1C1730" stroke="#5A4A8A" stroke-width="0.5"/><text x="520" y="47" text-anchor="middle" fill="#E4DBFF" font-family="'JetBrains Mono',monospace" font-size="11" font-weight="600">Route by type</text><text x="520" y="62" text-anchor="middle" fill="#B3A3D9" font-family="Inter,sans-serif" font-size="10">assigned accountant / general</text></g>
+
+        <line x1="520" y1="72" x2="520" y2="98" stroke="#8A73D9" stroke-width="1.5" marker-end="url(#arrow7)"/>
+        <g><rect x="360" y="98" width="320" height="46" rx="8" fill="#2A2210" stroke="#8A7A2C" stroke-width="0.5"/><text x="520" y="118" text-anchor="middle" fill="#FFF0BB" font-family="'JetBrains Mono',monospace" font-size="11" font-weight="600">Write to Sheets, Supabase &amp; Slack reply</text><text x="520" y="134" text-anchor="middle" fill="#D9C87C" font-family="Inter,sans-serif" font-size="10">mastersheet + individual tab + confirmation</text></g>
+
+        <line x1="20" y1="176" x2="640" y2="176" stroke="#232D42" stroke-width="0.5"/>
+
+        <text x="20" y="196" font-family="'JetBrains Mono',monospace" font-size="11" fill="#8A93A8">2. Task update (Kanban board &rarr; sync back)</text>
+        <g><rect x="20" y="206" width="120" height="42" rx="8" fill="#171F30" stroke="#2C6E68" stroke-width="0.5"/><text x="80" y="223" text-anchor="middle" fill="#DFF7F4" font-family="'JetBrains Mono',monospace" font-size="11" font-weight="600">Kanban update</text><text x="80" y="238" text-anchor="middle" fill="#8A93A8" font-family="Inter,sans-serif" font-size="10">webhook</text></g>
+        <line x1="140" y1="227" x2="168" y2="227" stroke="#4FD1C5" stroke-width="1.5" marker-end="url(#arrow7)"/>
+        <g><rect x="168" y="206" width="110" height="42" rx="8" fill="#171F30" stroke="#2C6E68" stroke-width="0.5"/><text x="223" y="223" text-anchor="middle" fill="#DFF7F4" font-family="'JetBrains Mono',monospace" font-size="11" font-weight="600">Validate</text><text x="223" y="238" text-anchor="middle" fill="#8A93A8" font-family="Inter,sans-serif" font-size="10">extract + check RBAC</text></g>
+        <line x1="278" y1="227" x2="306" y2="227" stroke="#4FD1C5" stroke-width="1.5" marker-end="url(#arrow7)"/>
+        <g><rect x="306" y="206" width="150" height="42" rx="8" fill="#2A2210" stroke="#8A7A2C" stroke-width="0.5"/><text x="381" y="223" text-anchor="middle" fill="#FFF0BB" font-family="'JetBrains Mono',monospace" font-size="11" font-weight="600">Update Sheets</text><text x="381" y="238" text-anchor="middle" fill="#D9C87C" font-family="Inter,sans-serif" font-size="10">mastersheet + individual tab</text></g>
+        <line x1="456" y1="227" x2="484" y2="227" stroke="#D9BF4F" stroke-width="1.5" marker-end="url(#arrow7)"/>
+        <g><rect x="484" y="206" width="150" height="42" rx="8" fill="#1C1730" stroke="#5A4A8A" stroke-width="0.5"/><text x="559" y="223" text-anchor="middle" fill="#E4DBFF" font-family="'JetBrains Mono',monospace" font-size="11" font-weight="600">Update Supabase</text><text x="559" y="238" text-anchor="middle" fill="#B3A3D9" font-family="Inter,sans-serif" font-size="10">respond success/error</text></g>
+      </svg>
+    </div>
+
+    <div class="section">
+      <p class="section-label">Access &amp; data ownership</p>
+      <p class="section-body">Scoped for a read/write/update model — no delete access exposed to the client. The client interacts only with Slack and the Kanban board; the backend (Supabase, data backups, Google Sheets, and the n8n workflows) is fully owned and operated by me, with full CRUD control on my end.</p>
+    </div>
+
+    <div class="section">
+      <p class="section-label">Challenge solved</p>
+      <p class="section-body">Built a real-time, bidirectional sync between chat, spreadsheets, a database, and a custom board — with RBAC and protected access — so a single Slack message reliably becomes a trackable, updatable task across every system without manual re-entry.</p>
+    </div>
+
+    <div class="section">
+      <p class="section-label">Validation</p>
+      <p class="section-body">Live in production use by the client, with over 99% accuracy — tested both by me and by the client's team.</p>
+    </div>
+  </article>
+
+  <!-- PROJECT 8: EMPLOYEE OS -->
+  <article class="project">
+    <div class="project-head">
+      <div>
+        <h2 class="project-title">Employee OS</h2>
+        <p class="project-tag">AI-native employee monitoring &amp; agent-building platform, built on a fork of LobeHub</p>
+      </div>
+      <span class="status-pill">NDA — description only</span>
+    </div>
+
+    <div class="section">
+      <p class="section-label">Problem</p>
+      <p class="section-body">Teams needed visibility into employee activity and productivity, while also wanting employees to be able to build their own AI agents for their individual projects — with no single platform offering both.</p>
+    </div>
+
+    <div class="section">
+      <p class="section-label">What I built</p>
+      <p class="section-body">An "Employee OS" built on a fork of LobeHub's agent platform — combining an activity monitoring system (task completion, time tracking, agent usage, and productivity metrics) with the ability for each employee to build and run their own AI agents for their projects, all within role-scoped dashboards.</p>
+    </div>
+
+    <div class="section">
+      <p class="section-label">My role</p>
+      <p class="section-body">Built the monitoring/tracking layer and custom UI on top of the LobeHub fork, and created new role-based endpoints — employee dashboard, admin, and super admin — to support tiered visibility and control across the organization.</p>
+    </div>
+
+    <div class="section">
+      <p class="section-label">Stack</p>
+      <div class="chips">
+        <span class="chip">Forked from LobeHub</span>
+        <span class="chip">LobeHub's existing tech stack</span>
+      </div>
+    </div>
+
+    <div class="section">
+      <p class="section-label">Key features</p>
+      <p class="section-body">Tracking: task completion, time tracking, AI agent usage, and productivity metrics per employee. Access tiers: employee dashboard (personal activity + agent building), admin (team-level visibility), and super admin (organization-wide oversight).</p>
+    </div>
+
+    <div class="section">
+      <p class="section-label">Challenge solved</p>
+      <p class="section-body">Extended an existing open-source agent platform into a role-aware internal tool — layering employee monitoring and self-serve agent building on top of infrastructure that wasn't originally built for either, without rebuilding the platform from zero.</p>
+    </div>
+  </article>
+
   <!-- Next project card goes here — copy the <article class="project"> block above and swap content -->
 
   <footer class="foot">// end_of_log — more projects to follow</footer>
